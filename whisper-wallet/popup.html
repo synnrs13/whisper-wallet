@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whisper Wallet</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚡ Whisper Wallet</h1>
+            <p class="version">v1.2.0</p>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="stats">📊 Stats</button>
+            <button class="tab-btn" data-tab="history">📜 History</button>
+            <button class="tab-btn" data-tab="settings">⚙️ Settings</button>
+        </div>
+
+        <!-- Stats Tab -->
+        <div id="stats-tab" class="tab-content active">
+            <div class="stats-section">
+                <h2>📈 Quick Statistics</h2>
+                
+                <div class="stat-card total">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Total Copies</div>
+                        <div class="stat-value" id="totalCopies">0</div>
+                    </div>
+                </div>
+
+                <h3>By Chain</h3>
+                <div id="chainStats" class="chain-stats">
+                    <!-- Chain stats will be inserted here -->
+                </div>
+
+                <h3>Most Active Today</h3>
+                <div class="today-stats">
+                    <div class="today-stat">
+                        <span class="today-label">Copies Today:</span>
+                        <span class="today-value" id="copiesToday">0</span>
+                    </div>
+                    <div class="today-stat">
+                        <span class="today-label">Most Used Chain:</span>
+                        <span class="today-value" id="topChain">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- History Tab -->
+        <div id="history-tab" class="tab-content">
+            <div class="history-header">
+                <h2>Recently Copied Addresses</h2>
+                <button id="clearHistoryBtn" class="btn-clear">🗑️ Clear All</button>
+            </div>
+            
+            <div id="historyList" class="history-list">
+                <div class="empty-state">
+                    <p>📭 No addresses copied yet</p>
+                    <span>Start copying addresses from Twitter/X!</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Tab -->
+        <div id="settings-tab" class="tab-content">
+            <div class="settings-section">
+                <h2>⚙️ Settings</h2>
+                
+                <div class="setting-item">
+                    <label class="switch">
+                        <input type="checkbox" id="enableScamCheck" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <div class="setting-info">
+                        <span class="setting-label">Enable Scam Detection</span>
+                        <span class="setting-desc">Check tokens for honeypots and scams</span>
+                    </div>
+                </div>
+
+                <div class="setting-item">
+                    <label class="switch">
+                        <input type="checkbox" id="showChainIcons" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <div class="setting-info">
+                        <span class="setting-label">Show Chain Icons</span>
+                        <span class="setting-desc">Display blockchain icons next to addresses</span>
+                    </div>
+                </div>
+
+                <div class="setting-item">
+                    <label class="switch">
+                        <input type="checkbox" id="truncateTxHash" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <div class="setting-info">
+                        <span class="setting-label">Truncate TX Hash</span>
+                        <span class="setting-desc">Shorten long transaction hashes</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>✂️ Truncate Settings</h2>
+                
+                <div class="input-group">
+                    <label for="truncateStartChars">Start Characters:</label>
+                    <input type="number" id="truncateStartChars" min="4" max="20" value="10">
+                </div>
+
+                <div class="input-group">
+                    <label for="truncateEndChars">End Characters:</label>
+                    <input type="number" id="truncateEndChars" min="4" max="20" value="8">
+                </div>
+
+                <div class="example">
+                    <strong>Example:</strong>
+                    <div class="example-text">0x90539e91...a9595a90</div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button id="saveBtn" class="btn btn-primary">💾 Save Settings</button>
+                <button id="resetBtn" class="btn btn-secondary">🔄 Reset</button>
+            </div>
+
+            <div class="danger-zone">
+                <h3>⚠️ Danger Zone</h3>
+                <button id="resetStatsBtn" class="btn-danger">🔥 Reset All Statistics</button>
+            </div>
+        </div>
+
+        <div id="notification" class="notification"></div>
+
+        <div class="footer">
+            <p>Made with 💜 for crypto traders</p>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
